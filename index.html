@@ -12,16 +12,27 @@
 
     <h2>Number of Buildings by Agency</h2>
     <div id="chart1"></div>
+    <p>
+        For my first plot, I visualized the number of Illinois buildings owned by each state agency. The x-axis represents the number of buildings, and the y-axis lists the agencies that own them. I included a descriptive title to ensure the viewer immediately understands what the chart conveys. To make the visualization easier to interpret, I sorted the y-axis in descending order so it’s clear which agencies own the most and fewest buildings at a glance. Before creating the plot, I used a Pandas groupby function to group the data by agency and count the number of buildings per agency. This preprocessing step simplified the data and made it straightforward to display the results clearly in the bar chart. It was very interesting to see that the department of natural resources was the largest agency by far.
+    </p>
     <script type="text/javascript">
         vegaEmbed('#chart1', 'chart1.json').catch(console.error);
     </script>
 
     <h2>Building Size vs Year Acquired</h2>
     <div id="chart2"></div>
+    <p>
+        For my second visualization, I decided to create an interactive scatter plot that to visualize the relationship between the square footage of a building and the year it was acquired, filtered by the agency that owns them. On the X-axis, I put the year it was acquired and on the y-axis, I put the building square footage. The interactive element is that the user can select the agency that they want to view and they will only see buildings that the selected agency acquired.
+    </p>
+    <p>
+        To allow the user to distinguish between building types, I decided to make a different color dot represent the different types of buildings to allow the user to see the distribution of building types. An issue that I encountered while creating this visual was with the year acquired. When I had no conditions on the year, the X-axis would showed all years all the way back to year 0. This made the visual hard to interpret and difficult to see the individual dots. Upon further examination, I saw that there were 256 rows where their year acquired was the year 0. For the purpose of my visual, I decided to cap the years shown to 1800, since there were no years lower than that besides the ones showing 0. I decided to not include those values because it seems like there was either a value missing or the building was not accurately colllected.
+    </p>
+    <p>
+        I found this to be interesting, especially for the University of Illinois. It was really cool to explore when different buildings were acquired. Something that I had noticed that caused me to worry was there was a residential building that U of I acquired in 1857. This didn't make sense to me, since the University was founded in 1867. However, I realized that this was probably because both the Chicago and Springfield campuses were being included.
+    </p>
     <script type="text/javascript">
         vegaEmbed('#chart2', 'chart2.json').catch(console.error);
     </script>
 
 </body>
 </html>
-
